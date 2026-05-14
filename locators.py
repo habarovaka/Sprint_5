@@ -15,9 +15,9 @@ class TestLocators:
 
     # --- РЕГИСТРАЦИЯ ---
     # Поля ввода в регистрации (ищем по тексту рядом)
-    NAME_INPUT = (By.XPATH, ".//label[text()='Имя']/following-sibling::input")
-    EMAIL_INPUT = (By.XPATH, ".//label[text()='Email']/following-sibling::input")
-    PASSWORD_INPUT = (By.XPATH, ".//label[text()='Пароль']/following-sibling::input")
+    NAME_INPUT = (By.XPATH, ".//label[text()='Имя']/parent::div//input")
+    EMAIL_INPUT = (By.XPATH, ".//label[text()='Email']/parent::div//input")
+    PASSWORD_INPUT = (By.XPATH, ".//label[text()='Пароль']/parent::div//input")
     # Кнопка «Зарегистрироваться»
     REGISTER_BUTTON = (By.XPATH, ".//button[text()='Зарегистрироваться']")
     # Текст ошибки «Некорректный пароль»
@@ -25,8 +25,8 @@ class TestLocators:
 
     # --- ВХОД ---
     # Поля ввода на странице логина (те же названия, что и в регистрации)
-    EMAIL_INPUT_LOGIN = (By.XPATH, ".//label[text()='Email']/following-sibling::input")
-    PASSWORD_INPUT_LOGIN = (By.XPATH, ".//label[text()='Пароль']/following-sibling::input")
+    EMAIL_INPUT_LOGIN = (By.XPATH, ".//label[text()='Email']/parent::div//input")
+    PASSWORD_INPUT_LOGIN = (By.XPATH, ".//label[text()='Пароль']/parent::div//input")
     # Кнопка «Войти» на форме логина
     LOGIN_BUTTON = (By.XPATH, ".//button[text()='Войти']")
 
