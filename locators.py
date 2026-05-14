@@ -50,3 +50,10 @@ class TestLocators:
     BUNS_TAB_ACTIVE = (By.XPATH, ".//div[contains(@class, 'tab_tab_type_current')]/span[text()='Булки']")
     SAUCES_TAB_ACTIVE = (By.XPATH, ".//div[contains(@class, 'tab_tab_type_current')]/span[text()='Соусы']")
     FILLINGS_TAB_ACTIVE = (By.XPATH, ".//div[contains(@class, 'tab_tab_type_current')]/span[text()='Начинки']")
+
+class Urls:
+    BASE_URL = "https://stellarburgers.education-services.ru/"
+    LOGIN_URL = f"{BASE_URL}login"
+    PROFILE_URL = f"{BASE_URL}account/profile"
+    REGISTRATOR_URL = f"{BASE_URL}login"
+    PASSWORD_URL = f"{BASE_URL}forgot-password"
