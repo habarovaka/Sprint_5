@@ -6,22 +6,18 @@ from locators import Urls
 
 class TestStellarBurgersNavigation:
 
-    def test_logout_from_personal_account_success(self, driver, registered_user):
+    def test_logout_from_personal_account_success(self, driver, registered_user, login_user):
         driver.get(Urls.LOGIN_URL)
-        driver.find_element(*TestLocators.EMAIL_INPUT_LOGIN).send_keys(registered_user["email"])
-        driver.find_element(*TestLocators.PASSWORD_INPUT_LOGIN).send_keys(registered_user["password"])
-        driver.find_element(*TestLocators.LOGIN_BUTTON).click()
+        login_user(registered_user["email"], registered_user["password"])
         WebDriverWait(driver, 5).until(EC.element_to_be_clickable(TestLocators.PERSONAL_CABINET_BUTTON)).click()
         WebDriverWait(driver, 5).until(EC.element_to_be_clickable(TestLocators.LOGOUT_BUTTON)).click()
         WebDriverWait(driver, 5).until(EC.visibility_of_element_located(TestLocators.LOGIN_BUTTON))
         assert "/login" in driver.current_url
         assert driver.find_element(*TestLocators.LOGIN_BUTTON).is_displayed()
 
-    def test_navigation_from_account_to_constructor_via_link_success(self, driver, registered_user):
+    def test_navigation_from_account_to_constructor_via_link_success(self, driver, registered_user, login_user):
         driver.get(Urls.LOGIN_URL)
-        driver.find_element(*TestLocators.EMAIL_INPUT_LOGIN).send_keys(registered_user["email"])
-        driver.find_element(*TestLocators.PASSWORD_INPUT_LOGIN).send_keys(registered_user["password"])
-        driver.find_element(*TestLocators.LOGIN_BUTTON).click()
+        login_user(registered_user["email"], registered_user["password"])
         driver.find_element(*TestLocators.PERSONAL_CABINET_BUTTON).click()
         driver.find_element(*TestLocators.CONSTRUCTOR_BUTTON).click()
         header = WebDriverWait(driver, 5).until(EC.visibility_of_element_located(TestLocators.CONSTRUCTOR_TITLE))

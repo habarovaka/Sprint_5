@@ -53,7 +53,6 @@ class TestLocators:
 
 class Urls:
     BASE_URL = "https://stellarburgers.education-services.ru/"
-    LOGIN_URL = f"{BASE_URL}login"
-    PROFILE_URL = f"{BASE_URL}account/profile"
-    REGISTRATOR_URL = f"{BASE_URL}register"
-    PASSWORD_URL = f"{BASE_URL}forgot-password"
+    REGISTRATOR_URL = "https://stellarburgers.education-services.ru/register"
+    LOGIN_URL = "https://stellarburgers.education-services.ru/login"
+    PASSWORD_URL = "https://stellarburgers.education-services.ru/forgot-password"

@@ -43,3 +43,12 @@ def registered_user(driver, user_email, user_password):
     if response.status_code == 200:
         token = response.json().get("accessToken")
         requests.delete(f"{Urls.BASE_URL}/api/auth/user", headers={'Authorization': token})
+
+@pytest.fixture
+def login_user(driver):
+#Функция-фикстура, которая выполняет логин на текущей странице
+    def _login(email, password):
+        driver.find_element(*TestLocators.EMAIL_INPUT_LOGIN).send_keys(email)
+        driver.find_element(*TestLocators.PASSWORD_INPUT_LOGIN).send_keys(password)
+        driver.find_element(*TestLocators.LOGIN_BUTTON).click()
+    return _login
