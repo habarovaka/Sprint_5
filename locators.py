@@ -55,5 +55,5 @@ class Urls:
     BASE_URL = "https://stellarburgers.education-services.ru/"
     LOGIN_URL = f"{BASE_URL}login"
     PROFILE_URL = f"{BASE_URL}account/profile"
-    REGISTRATOR_URL = f"{BASE_URL}login"
+    REGISTRATOR_URL = f"{BASE_URL}register"
     PASSWORD_URL = f"{BASE_URL}forgot-password"
