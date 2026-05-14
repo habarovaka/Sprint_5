@@ -27,12 +27,8 @@ class TestStellarBurgersNavigation:
         assert header.text == "Соберите бургер"
         assert header.is_displayed()
 
-    def test_navigation_to_constructor_logo_success(self, driver, registered_user):
+    def test_navigation_to_constructor_via_logo_success(self, driver):
         driver.get("https://stellarburgers.education-services.ru/login")
-        driver.find_element(*TestLocators.EMAIL_INPUT_LOGIN).send_keys(registered_user["email"])
-        driver.find_element(*TestLocators.PASSWORD_INPUT_LOGIN).send_keys(registered_user["password"])
-        driver.find_element(*TestLocators.LOGIN_BUTTON).click()
-        driver.find_element(*TestLocators.PERSONAL_CABINET_BUTTON).click()
         driver.find_element(*TestLocators.LOGO_BUTTON).click()
         WebDriverWait(driver, 5).until(EC.visibility_of_element_located(TestLocators.CONSTRUCTOR_TITLE))
         assert driver.current_url == "https://stellarburgers.education-services.ru/"
